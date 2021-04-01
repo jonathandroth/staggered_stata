@@ -21,7 +21,7 @@ program call_staggered_rcall, rclass
 
 	//re-run rcall_check checking that the staggered package is installed
 	 //if not, capture error and install the package
-	capture rcall_check staggered>=0
+	capture rcall_check staggered>=1.0
 	if _rc != 0{
 		display "Installing devtools and staggered packages in R" 
 		rcall vanilla: install.packages("devtools", repos="http://cran.us.r-project.org")
