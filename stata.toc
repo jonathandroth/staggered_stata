@@ -1,0 +1,8 @@
+v 1.0.0
+d Materials by Jonathan Roth, Pedro Sant'Anna, James Brand
+d Jonathan.Roth@microsoft.com
+d https://github.com/jonathandroth/staggered_stata
+
+d 'staggered_stata': estimation for staggered rollout designs
+
+p staggered_stata
