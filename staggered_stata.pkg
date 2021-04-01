@@ -1,0 +1,12 @@
+v 2.0.5
+d 'staggered_stata': estimation for staggered rollout designs
+d 
+d Distribution-Date:   20210331
+d License: MIT
+d 
+F staggered.ado
+F staggered_cs.ado
+F staggered_sa.ado
+F staggered_helper.ado
+F call_staggered_rcall.ado
+
