@@ -5,6 +5,7 @@ d Distribution-Date:   20210331
 d License: MIT
 d 
 F staggered.ado
+F staggered.sthlp
 F staggered_cs.ado
 F staggered_sa.ado
 F staggered_helper.ado
