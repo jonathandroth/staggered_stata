@@ -2,12 +2,12 @@
 {title:Title}
  
 {phang}
-{cmd:staggered} {hline 2} {bf:staggered} belongs to the {help staggered_stata} package. The {bf:staggered} function implements the efficient estimator in Roth & Sant'Anna (2020) for staggered rollout designs with random timing. The R package staggered is called via rcall. See the {browse "https://github.com/jonathandroth/staggered":staggered webpage} for more information.
+{cmd:staggered_sa} {hline 2} {bf:staggered} belongs to the {help staggered_stata} package. The {bf:staggered_sa} function implements the Sun & Abraham (2020) difference-in-differences estimator for staggered rollout designs. The comparison group used is never-treated units if they exist and otherwise the last-to-be-treated cohort. The R package staggered is called via rcall. See the {browse "https://github.com/jonathandroth/staggered":staggered webpage} for more information.
 
 {title:Syntax}
 
 {p 8 17 2}
-{cmd:staggered}, y({help varlist}) g({help varlist}) t({help varlist}) i({help varlist}) estimand({help name}) [eventTimeStart({help numlist}) eventTimeEnd({help numlist})]
+{cmd:staggered_sa}, y({help varlist}) g({help varlist}) t({help varlist}) i({help varlist}) estimand({help name}) [eventTimeStart({help numlist}) eventTimeEnd({help numlist})]
 
 {synoptset 20 tabbed}{...}
 {synopthdr}
@@ -26,10 +26,10 @@
 
 {title:Example(s)}
 
-    Estimate the efficient estimator for an outcome y, with time variable t, first-treated variable g, and identifier i.
+    Estimate the Sun & Abraham estimator for an outcome y, with time variable t, first-treated variable g, and identifier i.
 	
-        {bf:. staggered, y("y") t("t") g("g") i("i") estimand("eventstudy") eventTimeStart(-5) eventTimeEnd(5)}
-        {bf:. staggered, y("y") t("t") g("g") i("i") estimand("simple")}
+        {bf:. staggered_sa, y("y") t("t") g("g") i("i") estimand("eventstudy") eventTimeStart(-5) eventTimeEnd(5)}
+        {bf:. staggered_sa, y("y") t("t") g("g") i("i") estimand("simple")}
 
 
 {title:Authors}
