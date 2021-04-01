@@ -8,7 +8,9 @@ F staggered.ado
 F staggered.sthlp
 F staggered_stata.sthlp
 F staggered_cs.ado
+F staggered_cs.sthlp
 F staggered_sa.ado
+F staggered_sa.sthlp
 F staggered_helper.ado
 F call_staggered_rcall.ado
 
