@@ -1,14 +1,17 @@
 capture program drop staggered_helper
 program staggered_helper, eclass
 	// Syntax with varnames and estimand to match staggered package
-	syntax , i(varlist) y(varlist) g(varlist) t(varlist) estimand(name) estimator(name) [eventTimeStart(numlist int max=1)] [eventTimeEnd(numlist int max=1)]
+	capture syntax , i(varlist) y(varlist) g(varlist) t(varlist) estimand(name) estimator(name) [ neverTreatedValue(numlist max=1) eventTimeStart(numlist int max=1)] [eventTimeEnd(numlist int max=1)]
+	
+	if _rc capture syntax , i(varlist) y(varlist) g(varlist) t(varlist) estimand(name) estimator(name) [ neverTreatedValue(string) eventTimeStart(numlist int max=1)] [eventTimeEnd(numlist int max=1)]
 	
 	// Set eventTimeStart/End to 0 if not provided
 	if "`eventTimeStart'" == "" local eventTimeStart = 0
 	if "`eventTimeEnd'" == "" local eventTimeEnd = 0
 	
+	
 	// Call the staggered helper
-	call_staggered_rcall, i(`i') y(`y') g(`g') t(`t') estimand(`estimand') estimator(`estimator') eventTimeStart(`eventTimeStart') eventTimeEnd(`eventTimeEnd')
+	call_staggered_rcall, i(`i') y(`y') g(`g') t(`t') estimand(`estimand') estimator(`estimator') neverTreatedValue(`neverTreatedValue') eventTimeStart(`eventTimeStart') eventTimeEnd(`eventTimeEnd')
 	matrix b = r(b)'
 	matrix vcv_raw = r(vcv_raw)
 	matrix vcv_neyman = r(vcv_neyman)
