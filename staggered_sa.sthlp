@@ -7,7 +7,7 @@
 {title:Syntax}
 
 {p 8 17 2}
-{cmd:staggered_sa}, y({help varlist}) g({help varlist}) t({help varlist}) i({help varlist}) estimand({help name}) [eventTimeStart({help numlist}) eventTimeEnd({help numlist})]
+{cmd:staggered_sa}, y({help varlist}) g({help varlist}) t({help varlist}) i({help varlist}) estimand({help name}) [neverTreatedValue({help numlist} or {help string}) eventTimeStart({help numlist}) eventTimeEnd({help numlist})]
 
 {synoptset 20 tabbed}{...}
 {synopthdr}
@@ -18,6 +18,7 @@
 {synopt:{opt t}} The variable indicating the time period for the panel.{p_end}
 {synopt:{opt estimand}} The estimand. Options are 'simple', 'cohort', 'calendar', 'eventstudy' for simple-weighted, calendar-weighted, and cohort-weighted averageas and event-study parameters. See Roth & Sant'Anna or the {browse "https://github.com/jonathandroth/staggered":staggered webpage} for additional details.{p_end}
 {synopt:{opt eventTimeStart},{opt eventTimeEnd}} If estimand is 'eventstudy', the event-study parameters are returned for relative time eventTimeStart to eventTimeEnd, where 0 denotes the instantaneous effect. (Positive numbers are periods after treatment).{p_end}
+{synopt:{opt neverTreatedValue}} If some units are never treated, this option can be used to indicate the value of g which marks these observations. This value can be either a number or a period, the latter indicating that never treated units are missing values of g. {p_end}
 
 {synoptline}
 {p2colreset}{...}
@@ -30,6 +31,8 @@
 	
         {bf:. staggered_sa, y("y") t("t") g("g") i("i") estimand("eventstudy") eventTimeStart(-5) eventTimeEnd(5)}
         {bf:. staggered_sa, y("y") t("t") g("g") i("i") estimand("simple")}
+	{bf:. staggered_sa, y("y") t("t") g("g") i("i") estimand("simple") neverTreatedValue(72)} 
+	{bf:. staggered_sa, y("y") t("t") g("g") i("i") estimand("simple") neverTreatedValue(.)} 
 
 
 {title:Authors}
